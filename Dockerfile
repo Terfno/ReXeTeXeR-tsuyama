@@ -22,13 +22,13 @@ ADD ./src/ulem.sty /usr/share/texmf-dist/tex/xelatex/ulem
 ADD ./src/here.sty /usr/share/texmf-dist/tex/xelatex/here/
 
 # txfonts for some other packages.
-ADD ./src/txfonts/afm/ /usr/share/texmf-dist/fonts/afm/txr/
-ADD ./src/txfonts/pfb/ /usr/share/texmf-dist/fonts/type1/txr/
-ADD ./src/txfonts/tfm/ /usr/share/texmf-dist/fonts/tfm/txr/
-ADD ./src/txfonts/vf/ /usr/share/texmf-dist/fonts/vf/txr/
-ADD ./src/txfonts/input/ /usr/share/texmf-dist/tex/xelatex/txr/
-ADD ./src/txfonts/dvips/ /usr/share/texmf-dist/dvips/config/
-RUN echo p +txr.map >> /usr/share/texmf-dist/dvips/config/config.ps
+# ADD ./src/txfonts/afm/ /usr/share/texmf-dist/fonts/afm/txr/
+# ADD ./src/txfonts/pfb/ /usr/share/texmf-dist/fonts/type1/txr/
+# ADD ./src/txfonts/tfm/ /usr/share/texmf-dist/fonts/tfm/txr/
+# ADD ./src/txfonts/vf/ /usr/share/texmf-dist/fonts/vf/txr/
+# ADD ./src/txfonts/input/ /usr/share/texmf-dist/tex/xelatex/txr/
+# ADD ./src/txfonts/dvips/ /usr/share/texmf-dist/dvips/config/
+# RUN echo p +txr.map >> /usr/share/texmf-dist/dvips/config/config.ps
 
 # BXjscls
 ADD ./src/BXjscls/*.cls /usr/share/texmf-dist/tex/xelate/bxjscls/

@@ -1,4 +1,4 @@
-INAME:=terfno/rexetexer:tsuyama
+INAME:=terfno/rexetexert
 CNAME:=tsuyama-rexetexer
 TARGET:=report.tex
 
