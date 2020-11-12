@@ -1,7 +1,8 @@
 % UTF-8
 \documentclass[a4paper, xelatex]{bxjsarticle}
 \XeTeXlinebreaklocale "ja_JP"
-\XeTeXlinebreakskip=0em plus 0.1em minus 0.01em
+% \XeTeXlinebreakskip=0em plus 0.1em minus 0.01em
+\XeTeXlinebreakskip=.25\zw plus 3pt minus 3pt
 \XeTeXlinebreakpenalty=0
 \usepackage{xltxtra}
 
@@ -29,19 +30,19 @@
   framexleftmargin=6mm, % 行番号をフレーム内に
   numberstyle=\scriptsize, %行番号のサイズ
   stepnumber=1, % 1行おきに行番号を
-  numbersep=1zw, % ソースと行番号の間隔
+  numbersep=1\zw, % ソースと行番号の間隔
   language = C % 言語設定
 }
 
 % タイトル・表紙設定
 \title{「研究タイトルっぽいやつ」}
-\author{Takahito Sueda}
+\author{おなまえ}
 \date{2020年12月1日}
 \kind{\interim} % 中間報告書の場合 / これはc_thesis.sty
 % \kind{\preliminary} % 予備審査論文の場合 / これはc_thesis.sty
 % \kind{\thesis} % 最終報告書の場合 / これはc_thesis.sty
-\affiliation{情報システム系} % これはc_thesis.sty
-\adviser{房 冠深} % これはc_thesis.sty
+\affiliation{所属する系} % これはc_thesis.sty
+\adviser{せんせいのなまえ} % これはc_thesis.sty
 
 \begin{document}
   % 表紙

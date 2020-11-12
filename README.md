@@ -29,4 +29,3 @@
 - cite.sty: mirrors.ctan.org/macros/latex/contrib/cite/cite.sty
 - junsrt.bst: http://mirror.las.iastate.edu/tex-archive/biblio/pbibtex/base/junsrt.bst
 - BXjscls: https://github.com/zr-tex8r/BXjscls
-- ZXjatype: https://github.com/zr-tex8r/ZXjatype

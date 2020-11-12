@@ -26,9 +26,6 @@ ADD ./src/BXjscls/*.cls /usr/share/texmf-dist/tex/xelate/bxjscls/
 ADD ./src/BXjscls/*.def /usr/share/texmf-dist/tex/xelate/bxjscls/
 ADD ./src/BXjscls/*.sty /usr/share/texmf-dist/tex/xelate/bxjscls/
 
-# ZXjatype
-ADD ./src/zxjatype.sty /usr/share/texmf-dist/tex/xelate/zxjatype/
-
 RUN mktexlsr
 
 CMD ["sh"]
