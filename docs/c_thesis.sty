@@ -1,8 +1,8 @@
 %% This is file `c_thesis.sty',
 
 % TeXファイルに以下の２行を追加してください
-% \kanjiskip=.25em plus 3pt minus 3pt
-% \xkanjiskip=.25em plus 3pt minus 3pt
+% \kanjiskip=.25\zw plus 3pt minus 3pt
+% \xkanjiskip=.25\zw plus 3pt minus 3pt
 
 % スタイルファイルの読み込み
 % \usepackage{mathptmx} % フォントをTimes系にするだけなので不要
@@ -120,7 +120,7 @@
   \end{center}
   \thispagestyle{empty}
   \newpage
-  % \ifvoid\@abstractbox\else\centerline{\box\@abstractbox}\vskip1.5em\fi
+  % \ifvoid\@abstractbox\else\centerline{\box\@abstractbox}\vskip1.5\zw\fi
 }
 
 % 図、表のフォントサイズの変更
@@ -228,18 +228,18 @@
 
 % 目次のsection命令とページ番号の間の破線表示(http://oku.edu.mie-u.ac.jp/tex/mod/forum/discuss.php?d=233)より引用
 % subsectionについても追記
-\def\@pnumwidth{3.0em}
+\def\@pnumwidth{3.0\zw}
 
 \renewcommand*{\l@section}[2]{
   \ifnum \c@tocdepth >\z@
   \addpenalty{\@secpenalty}
-  \addvspace{1.0em \@plus\p@}
+  \addvspace{1.0\zw \@plus\p@}
   \begingroup
   \parindent\z@
   \rightskip\@tocrmarg
   \parfillskip-\rightskip
   \leavevmode\headfont
-  \setlength\@lnumwidth{4em}
+  \setlength\@lnumwidth{4\zw}
   \advance\leftskip\@lnumwidth \hskip-\leftskip
   #1\nobreak\leaders\hbox{\normalfont$\m@th \mkern \@dotsep mu\hbox{.}\mkern \@dotsep mu$}\hfill\nobreak\hbox to\@pnumwidth{\hss#2}\par
   \endgroup
@@ -247,8 +247,8 @@
 }
 
 \renewcommand*{\l@subsection}{
-  \@tempdima\jsc@tocl@width \advance\@tempdima -1em
-  \@dottedtocline{2}{\@tempdima}{3em}
+  \@tempdima\jsc@tocl@width \advance\@tempdima -1\zw
+  \@dottedtocline{2}{\@tempdima}{3\zw}
 }
 
 % 図を囲んで中央ぞろえ（使い方）\begin{figure}[htbp]\begin{figbox}\includegraphics[]{}\end{figbox}\end{figure}
@@ -263,20 +263,20 @@
 
 % section関連の再定義
 \renewcommand{\section}{
-  \@startsection{section}{1}{1em}
+  \@startsection{section}{1}{1\zw}
   {0.7\Cvs}{0.7\Cvs}
   {\normalsize\bf\raggedright}
 }
 
 \renewcommand{\subsection}{
-  \@startsection{subsection}{1}{1em}
+  \@startsection{subsection}{1}{1\zw}
   {.5\Cvs \@plus.5\Cdp \@minus.2 \Cdp}
   {.2\Cvs \@plus.3\Cdp}
   {\normalsize\bf\raggedright}
 }
 
 \renewcommand{\subsubsection}{
-  \@startsection{subsubsection}{1}{1em}
+  \@startsection{subsubsection}{1}{1\zw}
   {.5\Cvs \@plus.5\Cdp \@minus.2 \Cdp}
   {.2\Cvs \@plus.3\Cdp}
   {\normalsize\bf\raggedright}
@@ -341,7 +341,7 @@
   \settowidth\jsc@tocl@width{\headfont\presectionname\postsectionname}
   \settowidth\@tempdima{\headfont\appendixname}
   \ifdim\jsc@tocl@width<\@tempdima\relax\setlength\jsc@tocl@width{\@tempdima}\fi
-  \ifdim\jsc@tocl@width<2em \divide\jsc@tocl@width by 2 \advance\jsc@tocl@width 1em\fi
+  \ifdim\jsc@tocl@width<2\zw \divide\jsc@tocl@width by 2 \advance\jsc@tocl@width 1\zw\fi
 
   \section*{\contentsname}
   \@mkboth{\contentsname}{\contentsname}
