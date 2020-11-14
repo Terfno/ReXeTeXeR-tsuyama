@@ -1,4 +1,4 @@
-FROM python:alpine3.11
+FROM alpine:3.5
 
 WORKDIR /docs
 
