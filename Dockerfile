@@ -1,7 +1,5 @@
 FROM alpine:3.8
 
-WORKDIR /docs
-
 # install xetex
 RUN apk --no-cache add openssl make texlive-xetex && \
   # latex package -> xelatex package
@@ -24,5 +22,3 @@ ADD ./src/ulem.sty /usr/share/texmf-dist/tex/xelatex/ulem
 ADD ./src/here.sty /usr/share/texmf-dist/tex/xelatex/here/
 
 RUN mktexlsr
-
-CMD ["sh"]

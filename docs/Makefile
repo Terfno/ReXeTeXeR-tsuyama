@@ -6,7 +6,7 @@ init:
 	@docker pull ${INAME}
 
 run:
-	@docker run -v ${PWD}:/docs --name ${CNAME} -itd ${INAME} sh
+	@docker run -v ${PWD}:/docs -w /docs --name ${CNAME} -itd ${INAME} sh
 
 exec:
 	@docker exec -it ${CNAME} sh
