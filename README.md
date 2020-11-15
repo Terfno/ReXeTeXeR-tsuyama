@@ -1,6 +1,4 @@
-# ReXeTeXeR(津山高専版)
-本家: [ReXeTeXeR](https://github.com/Terfno/ReXeTeXeR)
-
+# ReXeTeXeR
 <div style="text-align:center;">
 
 ![GitHub](https://img.shields.io/github/license/terfno/rexetexer) ![GitHub repo size](https://img.shields.io/github/repo-size/terfno/rexetexer) ![GitHub last commit](https://img.shields.io/github/last-commit/terfno/rexetexer)
@@ -9,8 +7,6 @@
 
 ## これはなに
 日本語の`.tex`(UTF-8)をTeXの環境構築なしに、XeTeX(xelatex)を使って`.pdf`に変換するやつです。
-勝手に**ReXeTeXeR**と名前をつけましたpBibTeXによるReferenceの自動生成に対応してます。
-この津山高専版は、津山高専が指定する`c_thesis.sty`に対応しています。
 
 ## 環境
 DockerかPodmanが必須です。それ以外はオプショナルです。
@@ -29,6 +25,7 @@ releaseから最新版をダウンロードしてください。
 ```
 .
 ├── LICENSE
+├── c_thesis.sty
 ├── Makefile
 ├── NotoSansJP-Regular.otf
 ├── NotoSerifJP-Regular.otf
@@ -79,12 +76,16 @@ $ make tex
 ### 4. TeXを書く
 `./report.tex`を編集することで、PDFが錬成されます。
 XeTeX(XeLaTeX)です。
-画像、引用等については、`test/report.tex`を参照してください。
 
 ### 5. PDFを見る
 リソースのオートリロードに対応したPDFビューワーを使って`report.pdf`を開くと、ほぼリアルタイムにプレビューされます。
 
 ### 6. その他
+#### make tex等でTeXがオギャったら
+とりあえずCtrl+Dでそのコンパイルを中断して再度`$ make tex`してみてください。
+たいていの場合は`.aux`や`.toc`などが原因で、`$ make tex`が走るとそれらのファイルは一度削除されます。
+それでも解消されない場合はIssueを建てるか、エラーメッセージを読んでください。
+
 #### VS CodeのAuto Saveとの相性が悪いこともある
 ファイルの変更を察知してコンパイルが走るので、VS CodeなどのAuto Saveで文法が完成していない`.tex`ファイルがコンパイルされることがあります。
 `.vscode`にこのワークスペースのみ、Auto Saveが`onFocusChange`になるよう設定すると解消できます。。
