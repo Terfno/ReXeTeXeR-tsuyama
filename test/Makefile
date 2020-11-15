@@ -1,34 +1,40 @@
 INAME:=terfno/rexetexert
-CNAME:=tsuyama-rexetexer
-TARGET:=report.tex
+TAG:=latest
+CNAME:=rexetexer-tsuyama
+TARGET:=report
+CONTAINER_ENGINE:=docker
+
+podman.%:
+	@$(MAKE) $* CONTAINER_ENGINE="podman"
 
 init:
-	@docker pull ${INAME}
+	@${CONTAINER_ENGINE} pull ${INAME}:${TAG}
 
 run:
-	@docker run -v ${PWD}:/docs -w /docs --name ${CNAME} -itd ${INAME} sh
+	@${CONTAINER_ENGINE} run -v ${PWD}:/docs -w /docs --name ${CNAME} -itd ${INAME}:${TAG} sh
 
 exec:
-	@docker exec -it ${CNAME} sh
+	@${CONTAINER_ENGINE} exec -it ${CNAME} sh
 
 start:
-	@docker start ${CNAME}
+	@${CONTAINER_ENGINE} start ${CNAME}
 
 stop:
-	@docker stop ${CNAME}
+	@${CONTAINER_ENGINE} stop ${CNAME}
 
 # rm
 rm:
-	@docker rm ${CNAME}
+	@${CONTAINER_ENGINE} rm ${CNAME}
 
 rmi:
-	@docker rmi ${INAME}
+	@${CONTAINER_ENGINE} rmi ${INAME}:${TAG}
 
 # tex
 tex:
-	@xelatex ${TARGET} && pbibtex report.aux && xelatex ${TARGET} && xelatex ${TARGET}
+	@rm -f ${TARGET}.aux && rm -f ${TARGET}.bbl && rm -f ${TARGET}.blg && rm -f ${TARGET}.log && rm -f ${TARGET}.toc &&\
+	xelatex ${TARGET}.tex && pbibtex report.aux && xelatex ${TARGET}.tex && xelatex ${TARGET}.tex
 
 watch:
 	@echo "start watching" && \
 	chmod +x ./watch.sh && \
-	./watch.sh ./${TARGET} 'make tex'
+	./watch.sh ./${TARGET}.tex 'make tex'
