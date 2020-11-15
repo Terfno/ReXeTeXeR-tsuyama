@@ -1,31 +1,112 @@
-# ReXeTeXeR
+# ReXeTeXeR(津山高専版)
+本家: [ReXeTeXeR](https://github.com/Terfno/ReXeTeXeR)
 
 <div style="text-align:center;">
 
-![GitHub](https://img.shields.io/github/license/terfno/rexetexer-tsuyama) ![GitHub repo size](https://img.shields.io/github/repo-size/terfno/rexetexer-tsuyama) ![GitHub last commit](https://img.shields.io/github/last-commit/terfno/rexetexer-tsuyama)
+![GitHub](https://img.shields.io/github/license/terfno/rexetexer) ![GitHub repo size](https://img.shields.io/github/repo-size/terfno/rexetexer) ![GitHub last commit](https://img.shields.io/github/last-commit/terfno/rexetexer)
 
 </div>
 
-![img](./design/logo.png)
-
 ## これはなに
+日本語の`.tex`(UTF-8)をTeXの環境構築なしに、XeTeX(xelatex)を使って`.pdf`に変換するやつです。
+勝手に**ReXeTeXeR**と名前をつけましたpBibTeXによるReferenceの自動生成に対応してます。
+この津山高専版は、津山高専が指定する`c_thesis.sty`に対応しています。
 
-![img](design/img.png)
+## 環境
+DockerかPodmanが必須です。それ以外はオプショナルです。
 
-<div style="text-align:center;">動作イメージ(スクショは開発中のもの)</div><br>
+- Docker or Podman(どちらか1つ)
+- GNU Make
+- テキストエディタ
+- 自動リロードできるPDFビューワー
 
-日本語の `.tex` (UTF-8) を TeX の環境構築なしに、XeTeX(xelatex)を使って `.pdf` に変換する Docker のコンテナーを作れるファイル群です。勝手に**ReXeTeXeR**と名前をつけました。pBibTeX による Reference の自動生成に対応してます。
+## 使い方
+### 0. 準備
+releaseから最新版をダウンロードしてください。
+`.zip`を作業ディレクトリに展開してください。
+すると、以下のようになるはずです。
 
-## 古事記
+```
+.
+├── LICENSE
+├── Makefile
+├── NotoSansJP-Regular.otf
+├── NotoSerifJP-Regular.otf
+├── README.md
+├── RobotoMono.ttf
+├── img
+│   └── logo.png
+├── ref.bib
+├── report.pdf
+├── report.tex
+└── watch.sh
+```
 
-// もしこの ReXeTeXeR が役に立ったらなんか贈ってもらえると私の励みになります。
+その後、以下のコマンドでReXeTeXeRをpullします。
+```sh
+$ make init
+```
 
-- [my Amazon wish list of books](https://www.amazon.co.jp/hz/wishlist/ls/3F249ZYIVVASC/ref=nav_wishlist_lists_2?_encoding=UTF8&type=wishlist)
-- [my Amazon wish list of gadget](https://www.amazon.co.jp/hz/wishlist/ls/21AZUN2VWHY3C/ref=nav_wishlist_lists_3?_encoding=UTF8&type=wishlist)
-- [my Amazon wish list(tea, game, etc)](https://www.amazon.co.jp/hz/wishlist/ls/27B0W5F7BN0VF/ref=nav_wishlist_lists_4?_encoding=UTF8&type=wishlist)
+#### Podmanでの利用
+この形でコマンドを実行することでDockerではなくPodmanが利用されます。
+```sh
+$ make podman.${TARGET}
+# Example
+$ make podman.init # Run `make init` with Podman
+```
 
-## 感謝
+### 1. 起動
+```sh
+$ make run
+```
 
-- cite.sty: mirrors.ctan.org/macros/latex/contrib/cite/cite.sty
+### 2. 接続
+```sh
+$ make exec
+```
+これでコンテナに入れます。
+以降のコマンドは特に記載がなければコンテナ内で実行するコマンドです。
+
+### 3. 自動コンパイルスクリプトを起動
+```sh
+$ make watch
+```
+#### 一度だけコンパイルしたいときは
+```sh
+$ make tex
+```
+
+### 4. TeXを書く
+`./report.tex`を編集することで、PDFが錬成されます。
+XeTeX(XeLaTeX)です。
+画像、引用等については、`test/report.tex`を参照してください。
+
+### 5. PDFを見る
+リソースのオートリロードに対応したPDFビューワーを使って`report.pdf`を開くと、ほぼリアルタイムにプレビューされます。
+
+### 6. その他
+#### VS CodeのAuto Saveとの相性が悪いこともある
+ファイルの変更を察知してコンパイルが走るので、VS CodeなどのAuto Saveで文法が完成していない`.tex`ファイルがコンパイルされることがあります。
+`.vscode`にこのワークスペースのみ、Auto Saveが`onFocusChange`になるよう設定すると解消できます。。
+
+#### リソースのオートリロードに対応したPDFビューワー
+- macOS: [Skim](https://skim-app.sourceforge.io/)
+- windows10: [Sumatra PDF](https://www.sumatrapdfreader.org/)
+- Linux: [Evince](https://wiki.gnome.org/Apps/Evince)
+
+#### 止めるときは
+コンテナから出て(`$ exit`)、以下のコマンドで止められます。
+```sh
+$ make stop
+```
+再度起動する場合は`$ make run`ではなく`$ make start`してください。
+
+コンテナを削除する場合は、以下のコマンドを使用してください。(イメージは削除されないので安心)
+```sh
+$ make rm
+```
+イメージを削除する場合は`$ make rmi`です。
+
+## thx
 - junsrt.bst: http://mirror.las.iastate.edu/tex-archive/biblio/pbibtex/base/junsrt.bst
 - BXjscls: https://github.com/zr-tex8r/BXjscls
