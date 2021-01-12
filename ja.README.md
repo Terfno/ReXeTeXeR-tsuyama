@@ -10,7 +10,7 @@
 ## これはなに
 日本語の`.tex`(UTF-8)をTeXの環境構築なしに、XeTeX(xelatex)を使って`.pdf`に変換するやつです。
 勝手に**ReXeTeXeR**と名前をつけましたpBibTeXによるReferenceの自動生成に対応してます。
-この津山高専版は、津山高専が指定する`c_thesis.sty`に対応しています。
+この津山高専版は、津山高専が指定する`c_thesis.sty`に互換性のあるスタイルファイルを内包しています。
 
 ## 環境
 DockerかPodmanが必須です。それ以外はオプショナルです。
@@ -71,6 +71,7 @@ $ make exec
 ```sh
 $ make watch
 ```
+
 #### 一度だけコンパイルしたいときは
 ```sh
 $ make tex
@@ -87,7 +88,7 @@ XeTeX(XeLaTeX)です。
 ### 6. その他
 #### VS CodeのAuto Saveとの相性が悪いこともある
 ファイルの変更を察知してコンパイルが走るので、VS CodeなどのAuto Saveで文法が完成していない`.tex`ファイルがコンパイルされることがあります。
-`.vscode`にこのワークスペースのみ、Auto Saveが`onFocusChange`になるよう設定すると解消できます。。
+`.vscode`にこのワークスペースのみ、Auto Saveが`onFocusChange`になるよう設定すると解消できます。
 
 #### リソースのオートリロードに対応したPDFビューワー
 - macOS: [Skim](https://skim-app.sourceforge.io/)
@@ -110,3 +111,6 @@ $ make rm
 ## thx
 - junsrt.bst: http://mirror.las.iastate.edu/tex-archive/biblio/pbibtex/base/junsrt.bst
 - BXjscls: https://github.com/zr-tex8r/BXjscls
+
+### もしよければ:bow:
+<a href="https://www.buymeacoffee.com/terfno" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
