@@ -9,7 +9,10 @@ RUN apk --no-cache add openssl make texlive-xetex && \
 ADD ./src/junsrt.bst /usr/share/texmf-dist/bibtex/bst/base/
 
 # BXjscls
-ADD ./src/BXjscls/*.* /usr/share/texmf-dist/tex/xelate/bxjscls/
+ADD ./src/BXjscls/*.* /usr/share/texmf-dist/tex/xelatex/bxjscls/
+
+# ZXjatype
+ADD ./src/zxjatype.sty /usr/share/texmf-dist/tex/xelatex/zxjatype/
 
 # c_thesis.sty
 # jlisting.sty
