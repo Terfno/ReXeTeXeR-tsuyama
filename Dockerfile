@@ -1,7 +1,7 @@
 FROM alpine:3.12
 
 # install xetex
-RUN apk --no-cache add openssl make texlive-xetex && \
+RUN apk add --no-cache --upgrade openssl make texlive-xetex && \
   # latex package -> xelatex package
   mv /usr/share/texmf-dist/tex/latex/ /usr/share/texmf-dist/tex/xelatex/
 
@@ -10,6 +10,7 @@ ADD ./src/junsrt.bst /usr/share/texmf-dist/bibtex/bst/base/
 
 # BXjscls
 ADD ./src/BXjscls/*.* /usr/share/texmf-dist/tex/xelatex/bxjscls/
+ADD ./src/font/*.* /usr/share/texmf-dist/tex/xelatex/bxjscls/
 
 # ZXjatype
 ADD ./src/zxjatype.sty /usr/share/texmf-dist/tex/xelatex/zxjatype/
