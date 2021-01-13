@@ -10,7 +10,7 @@ COPY ./src/junsrt.bst /usr/share/texmf-dist/bibtex/bst/base/
 
 # BXjscls
 COPY ./src/BXjscls/*.* /usr/share/texmf-dist/tex/xelatex/bxjscls/
-COPY ./src/fonts/ /usr/share/fonts/
+COPY ./src/fonts/ /usr/share/texmf-dist/fonts/
 
 # ZXjatype
 COPY ./src/zxjatype.sty /usr/share/texmf-dist/tex/xelatex/zxjatype/
