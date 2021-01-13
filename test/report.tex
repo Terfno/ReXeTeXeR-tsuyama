@@ -1,14 +1,11 @@
 % UTF-8
-\documentclass[a4paper,xelatex,ja=standard]{bxjsarticle}
+\documentclass[a4paper, xelatex, ja=standard, base=10.5pt]{bxjsarticle}
+
 \XeTeXlinebreaklocale "ja"
-
-% \XeTeXlinebreakskip=.25\zw plus 3pt minus 3pt
-% \XeTeXlinebreakpenalty=0
-% \setxkanjiskip{.25\zw}
-% \kanjiskip=.25zw plus 3pt minus 3pt
-% \xkanjiskip=.25zw plus 3pt minus 3pt
-
-\usepackage{xltxtra}
+\XeTeXlinebreakpenalty=0
+% 155 truemm / 40 letters = 3.875.
+\setkanjiskip{3.875truemm - 1\zw}
+\setxkanjiskip{3.875truemm - 1\zw}
 
 % fonts
 \usepackage{fontspec}
