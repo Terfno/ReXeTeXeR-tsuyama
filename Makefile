@@ -10,12 +10,6 @@ podman.%:
 init:
 	@${CONTAINER_ENGINE} pull ${INAME}:${TAG}
 
-dev:
-	@${CONTAINER_ENGINE} run -it --rm alpine:3.11 sh
-
-build:
-	@${CONTAINER_ENGINE} build -t '${INAME}:${TAG}' .
-
 run:
 	@${CONTAINER_ENGINE} run --rm -v ${PWD}:/docs -w /docs --name ${CNAME} -it ${INAME}:${TAG} sh
 
