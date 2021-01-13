@@ -111,6 +111,8 @@ $ make rm
 ## thx
 - junsrt.bst: http://mirror.las.iastate.edu/tex-archive/biblio/pbibtex/base/junsrt.bst
 - BXjscls: https://github.com/zr-tex8r/BXjscls
+- ZXjatype: https://github.com/zr-tex8r/ZXjatype
+- Haranoaji: https://github.com/trueroad/HaranoAjiFonts
 
 ### もしよければ:bow:
 <a href="https://www.buymeacoffee.com/terfno" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
