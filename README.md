@@ -28,7 +28,7 @@ This means that you can write TeX in the style specified by NIT, Tsuyama College
 
 ## How to use
 ### 0. Preparation
-Download the latest version from [releases](https://github.com/Terfno/ReXeTeXeR/releases/latest).
+Download the latest version from [releases](https://github.com/Terfno/ReXeTeXeR-tsuyama/releases/latest).
 Then, unzip the .zip file.
 
 ```
